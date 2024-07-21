@@ -1,0 +1,31 @@
+changed vanilla files:
+	
+	common/decisions/doctrine_of_lapse_decision
+		Changed to allow overlord of EIC to take decision if they chose to continue Doctrine of Lapse (see below); hides decision while no princely states exist.
+		
+	common/static_modifiers/00_code_static_modifiers
+		Added barracks/conscription numbers to incorporated states
+	
+	common/technology/technologies/quinine_delay
+		Quinine set to era_3
+	
+	events/british_raj_events
+		Changed raj.1 to allow continuation of doctrine of lapse for overlord of EIC.
+	
+new files:
+
+	common/decisions/DEI_doctrine_of_lapse_decision: 
+		Doctrine of Lapse-style decision for overlord if DEI is puppet
+	common/decisions/scramble_for_africa_decision: 
+		Congress for Africa content
+		
+	common/diplomatic_plays/zz_diplomatic_plays: 
+		Protectorate, Conquer State by non-Africans against malaria states requires Civilizing Mission
+	
+	common/static_modifiers/zz_scramble_africa_modifier
+		Congress for Africa content
+		
+	events/EIC_DEI_consolidation_events: 
+		Event to select state for Doctrine of Lapse for overlord of EIC/DEI based on changed decisions above.
+	events/scramble_for_africa_events: 
+		Congress for Africa content

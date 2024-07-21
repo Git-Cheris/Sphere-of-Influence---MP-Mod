@@ -1,0 +1,14 @@
+﻿l_english:
+ raj.1.b:0 "We should continue the Doctrine of Lapse."
+ eicdei_consolidation.1.d:0 "According to the Doctrine of Lapse, the Crown has the right to seize any land belonging to a ruler who is manifestly incompetent, or has passed away without leaving a male heir. Our judgement of rulers' incompetence can come quite conveniently"
+ eicdei_consolidation.1.f:0 ""Divide et empera was the old Roman motto, and it should be ours. We should use any means necessary, legal or illegal, to appropriate more land for the Crown.""
+ 
+ doctrine_of_lapse_NET:0 "East Indies Intervention"
+ doctrine_of_lapse_NET_desc:0 "It is up to the Crown to consolidate and reap the profits of the East"
+ 
+ eicdei_consolidation.2.t:0 "East Indies Intervention"
+ eicdei_consolidation.2.d:0 "The unruly sultans of the East Indies must be brought under centralized control of our colonial administration in Batavia. By manufacturing a "legitimate" reason we can intervene with the Royal East Indies Army and bring them to heel."
+ eicdei_consolidation.2.f:0 "After the disastrous end to the East India Company, it is up to the Crown to consolidate and reap the profits of the East."
+ eicdei_consolidation.2.a:0 "[SCOPE.sState('doctrine_of_lapse_NET_target_state_1').GetName] has mistreated shipwrecked sailors."
+ eicdei_consolidation.2.b:0 "[SCOPE.sState('doctrine_of_lapse_NET_target_state_2').GetName] has been acting aggressively towards one of our allies on their border."
+ eicdei_consolidation.2.c:0 "[SCOPE.sState('doctrine_of_lapse_NET_target_state_1').GetName]'s ruler has been working in opposition to our trade policies."

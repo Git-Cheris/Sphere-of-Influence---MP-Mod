@@ -1,0 +1,116 @@
+namespace = scramble_for_africa
+
+scramble_for_africa.1 = { #CAPITALNAME Conference
+	type = country_event
+	placement = ROOT
+
+	title = scramble_for_africa.1.t
+	desc = scramble_for_africa.1.d
+	flavor = scramble_for_africa.1.f
+
+	duration = 1
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	minor_left_icon = root
+
+	trigger = {
+	}
+
+	immediate = {
+		root = {
+			save_scope_as = scramble_conference_country
+		}
+	}
+
+	option = {
+		name = scramble_for_africa.1.a
+		default_option = yes
+		
+		add_modifier = {
+			name = hosted_african_conference_modifier
+			months = long_modifier_time
+		}
+			
+		custom_tooltip = conference_invitation_sent
+		hidden_effect = {
+			every_country = {
+				limit = {
+					country_is_in_europe = yes
+					OR = {
+						country_rank = rank_value:great_power
+						country_rank = rank_value:major_power
+					}
+				}
+				trigger_event = { id = scramble_for_africa.2 days = 7 popup = yes }
+			}
+		}
+	}
+}
+
+scramble_for_africa.2 = { #CAPITALNAME Conference Hosted
+	type = country_event
+	placement = ROOT
+
+	title = scramble_for_africa.2.t
+	desc = scramble_for_africa.2.d
+	flavor = scramble_for_africa.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	minor_left_icon = scope:scramble_conference_country
+	minor_right_icon = this
+
+	trigger = {
+	}
+
+	option = {
+		name = scramble_for_africa.2.a #join - has colonial institution
+		custom_tooltip = can_conquer_malaria_states
+		trigger = {
+			NOR = { 
+				has_law = law_type:law_no_colonial_affairs 
+				has_law = law_type:law_frontier_colonization 
+			}
+		}
+	}
+
+	option = {
+		name = scramble_for_africa.2.b #join - no colonial institution
+		trigger = {
+			has_law = law_type:law_no_colonial_affairs
+		}
+		custom_tooltip = can_conquer_malaria_states
+		activate_law = law_type:law_colonial_exploitation
+		add_modifier = {
+			name = scrambling_for_africa_modifier
+			months = short_modifier_time
+		}
+		
+	}
+
+	option = {
+		name = scramble_for_africa.2.c #ignore - no colonial institution
+		trigger = {
+			OR = { 
+				has_law = law_type:law_no_colonial_affairs 
+				has_law = law_type:law_frontier_colonization 
+			}
+		}
+		custom_tooltip = can_conquer_malaria_states
+	}
+}

@@ -1,0 +1,9 @@
+﻿hosted_african_conference_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_prestige_add = 50
+}
+
+scrambling_for_africa_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_expenses_add = 5000
+}

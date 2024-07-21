@@ -1,0 +1,35 @@
+host_congress_africa = {
+	is_shown = {
+		NOT = { has_global_variable = conference_africa_hosted }
+		has_technology_researched = quinine
+		OR = {
+			any_scope_state = { has_state_trait = state_trait_malaria }
+			any_subject_or_below = { any_scope_state = { has_state_trait = state_trait_malaria } }
+		}
+		institution_investment_level = {
+			institution = institution_colonial_affairs
+			value >= 1
+		}
+		country_is_in_europe = yes
+	}
+
+	possible = {
+		hidden_trigger = { NOT = { has_global_variable = conference_africa_hosted } }
+		has_technology_researched = civilizing_mission
+		any_scope_state = { has_state_trait = state_trait_malaria }
+		institution_investment_level = {
+			institution = institution_colonial_affairs
+			value >= 4
+		}
+	}
+
+	when_taken = {
+		set_global_variable = conference_africa_hosted
+		trigger_event = { id = scramble_for_africa.1 days = 0 popup = yes }
+		root = { save_scope_as = scramble_conference_country }
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}

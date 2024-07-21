@@ -1,0 +1,22 @@
+﻿l_english:
+ 
+ host_congress_africa:0 "Host European Conference on African Affairs"
+ host_congress_africa_desc:0 "We should host a congress to establish a framework for regulating European colonization of the continent."
+ 
+ scramble_for_africa.1.t:0 "Hosting the [SCOPE.sCountry('scramble_conference_country').GetCapital.GetCityHubName] Conference"
+ scramble_for_africa.1.d:0 "With European powers scrambling for control and influence over the African continent, [SCOPE.sCountry('scramble_conference_country').GetRuler.GetPrimaryRoleTitle] [SCOPE.sCountry('scramble_conference_country').GetRuler.GetFullName] has leveraged [SCOPE.sCountry('scramble_conference_country').GetAdjective] influence to invite the European powers to a conference in [SCOPE.sCountry('scramble_conference_country').GetCapital.GetCityHubName] to establish a framework for regulating European colonization of the continent."
+ scramble_for_africa.1.f:0 "#lore "Only by proving that we are superior to the savages, not only through our power to kill them but through our entire way of life, can we control them as they are now, in their present stage; it is necessary for their own well-being, even more than ours."#! \n\n  - Henry Morton Stanley, #italic Through the Dark Continent: Volume 1 #!"
+ scramble_for_africa.1.a:0 "We will take charge and bring the light of  [SCOPE.sCountry('scramble_conference_country').GetAdjective] civilization to the Dark Continent."
+ 
+ scramble_for_africa.2.t:0 "[SCOPE.sCountry('scramble_conference_country').GetCapital.GetCityHubName] Conference"
+ scramble_for_africa.2.d:0 "[SCOPE.sCountry('scramble_conference_country').GetRuler.GetPrimaryRoleTitle] [SCOPE.sCountry('scramble_conference_country').GetRuler.GetFullName] has invited the European powers to a conference in [SCOPE.sCountry('scramble_conference_country').GetCapital.GetCityHubName] to establish a framework for regulating European colonization. Although it will not formalize any claims at this point, it will lay the groundwork for future treaties and channel European aggression away from the continent itself."
+ scramble_for_africa.2.f:0 "The world has grown smaller, and competition between the European powers over the riches of Africa has escalated in recent years. Advances in medicine, military capabilities and social thought are now enabling large-scale colonoization of the continent's vast interior."
+ scramble_for_africa.2.a:0 "The Scramble for Africa has now begun in earnest."
+ scramble_for_africa.2.b:0 "We must join the scramble at any cost!"
+ scramble_for_africa.2.c:0 "This is none of our concern."
+ 
+ can_conquer_malaria_states:0 "[Concept('concept_country', '$concept_countries$')] in [Concept('concept_state', '$concept_states$')] with the #b Malaria#! or #b Severe Malaria#! State Traits may now be the target of #b Conquer State#! and #b Make Protectorate#! [Concept('concept_diplomatic_play', '$concept_diplomatic_plays$')] by Countries outside such States."
+ conference_invitation_sent:0 "Every European [concept_great_power] and [concept_major_power] gets the event #b #white [SCOPE.sCountry('scramble_conference_country').GetCapital.GetCityHubName] Conference#!#! in #b #white 7#!#! days."
+ 
+ hosted_african_conference_modifier:0 "Hosted Congress on African Affairs"
+ scrambling_for_africa_modifier:0 "Scrambling for Africa"

@@ -1,0 +1,5 @@
+CHANGES
+
+- Increased number of ports exponentially by tech and doubled Naval Capacity
+- Added actual debuffs to Multiculturalism
+- Increased max trade level from 100 to 300

@@ -1,0 +1,410 @@
+on_monthly_pulse_country = {
+	effect = {
+
+		# Great game control
+		if = {
+			limit = {
+				OR = {
+					c:GBR ?= this
+					c:RUS ?= this
+					c:PER ?= this
+					is_afghan_nation = yes
+				}
+				NOT = {
+					has_global_variable = great_game_failed
+					has_journal_entry = je_great_game_control
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_great_game_control
+			}
+		}
+
+		# Afghan protectorate
+		if = {
+			limit = {
+				is_player = yes
+				NOT = {
+					has_global_variable = gg_afghanistan_protectorate_done
+					has_journal_entry = je_maintain_afghan_protectorate
+					has_objective = objective_great_game 
+				}
+				has_interest_marker_in_region = region_persia
+				OR = {
+					c:GBR?= THIS
+					c:RUS ?= THIS
+				}
+				has_journal_entry = je_great_game_control
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_maintain_afghan_protectorate
+			}
+		}
+
+		#Disrupt Russian Caucasus
+		if = {
+			limit = {
+				is_player = yes
+				c:GBR?= THIS
+				exists = c:CIR
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry =  je_disrupt_russian_caucasus
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_disrupt_russian_caucasus
+			}
+		}
+
+		# Counter Russian Pacific Influence
+		if = {
+			limit = {
+				is_player = yes
+				c:GBR?= THIS
+				c:RUS ?= {
+					any_scope_state = {
+						region = sr:region_manchuria
+						OR = {
+							any_scope_building = {
+								is_building_type = building_port
+								level >= 5
+							}
+							any_scope_building = {
+								is_building_type = building_naval_base
+								level >= 15
+							}
+						}
+					}
+				}
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_counter_russian_pacific_influence
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_counter_russian_pacific_influence
+			}
+		}
+
+		# Consolidate British India
+		if = {
+			limit = {
+				is_player = yes
+				c:GBR?= THIS
+				c:BIC ?= {
+					is_subject_of = c:GBR
+				}
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_consolidate_british_india
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_consolidate_british_india
+			}
+		}
+
+		# Repulse Russian Pamirs
+		if = {
+			limit = {
+				is_player = yes
+				c:GBR?= THIS
+				c:RUS ?= {
+					OR = {
+						any_scope_state = {
+							state_region = s:STATE_TAJIKISTAN
+						}
+						any_subject_or_below = {
+							any_scope_state = {
+								state_region = s:STATE_TAJIKISTAN
+							}
+						}
+					}
+				}
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_variable = dismissed_pamir_expedition
+					has_journal_entry = je_pamir_expedition_objective
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_pamir_expedition_objective
+			}
+		}
+
+		# Consolidate Afghanistan
+		if = {
+			limit = {
+				is_player = yes
+				has_interest_marker_in_region = region_persia
+				OR = {
+					c:GBR?= THIS
+					c:RUS ?= THIS
+				}
+				has_journal_entry = je_great_game_control
+				exists = c:AFG
+				NOT = {
+					has_journal_entry = je_consolidate_afghanistan_objective
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_consolidate_afghanistan_objective
+			}
+		}
+
+		# Secure Persian Border
+		if = {
+			limit = {
+				is_player = yes
+				c:RUS ?= THIS
+				exists = c:CIR
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_secure_persian_border
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_secure_persian_border
+			}
+		}
+
+		# Unify Afghanistan
+		if = {
+			limit = {
+				is_player = yes
+				is_afghan_nation = yes
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_unify_afghanistan_objective
+					has_objective = objective_great_game 
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_unify_afghanistan_objective
+			}
+		}
+
+		# Pacify Kazakh Steppe
+		if = {
+			limit = {
+				is_player = yes
+				c:RUS ?= THIS
+				has_journal_entry = je_pacify_the_steppes
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_pacify_kazakh_steppes
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_pacify_kazakh_steppes
+			}
+		}
+
+		# Codify Chinese Border
+		if = {
+			limit = {
+				is_player = yes
+				c:RUS ?= THIS
+				has_technology_researched = nationalism
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_codify_chinese_border
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_codify_chinese_border
+			}
+		}
+
+		# Consolidate Central Asia
+		if = {
+			limit = {
+				is_player = yes
+				c:RUS ?= THIS
+				has_technology_researched = nationalism
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_consolidate_central_asia
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_consolidate_central_asia
+			}
+		}
+
+		# Acquire Chinese Concessions
+		if = {
+			limit = {
+				is_player = yes
+				c:RUS ?= THIS
+				has_technology_researched = railways
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_OUTER_MANCHURIA
+						state_region = s:STATE_AMUR
+					}
+					is_incorporated = yes
+				}
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_chinese_concessions
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_chinese_concessions
+			}
+		}
+
+		# Acquire Korean Protectorate
+		if = {
+			limit = {
+				is_player = yes
+				c:RUS ?= THIS
+				any_neighbouring_state = {
+					owner = c:KOR
+					is_incorporated = yes
+				}
+				c:KOR ?= {
+					is_country_type = unrecognized
+				}
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_chinese_concessions
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			set_global_variable = korean_protectorate_started
+			add_journal_entry = {
+				type = je_acquire_korean_protectorate
+			}
+		}
+
+		# Expand Eastern Frontier
+		if = {
+			limit = {
+				is_player = yes
+				c:PER ?= this
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_eastern_frontier
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_eastern_frontier
+			}
+		}
+
+		# Secure Influence Over Persia
+		if = {
+			limit = {
+				is_player = yes
+				has_interest_marker_in_region = region_persia
+				OR = {
+					c:GBR?= THIS
+					c:RUS ?= THIS
+				}
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_secure_influence_over_persia
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_secure_influence_over_persia
+			}
+		}
+
+		# Consolidate Persia
+		if = {
+			limit = {
+				is_player = yes
+				c:PER ?= this
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_consolidate_persia
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_consolidate_persia
+			}
+		}
+
+		# Achieve Sovereignty
+		if = {
+			limit = {
+				is_player = yes
+				OR = {
+					c:PER ?= this
+					is_afghan_nation = yes
+				}
+				is_country_type = unrecognized
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_achieve_sovereignty
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_achieve_sovereignty
+			}
+		}
+
+		# Secure Tibet
+		if = {
+			limit = {
+				is_player = yes
+				NOT = { c:TIB ?= THIS }
+				exists = c:TIB
+				country_rank >= rank_value:great_power
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
+				has_variable = tibet_has_started
+				NOT = { has_global_variable = tibet_expedition_completed }
+				has_interest_marker_in_region = region_himalayas
+				has_journal_entry = je_great_game_control
+				NOT = {
+					has_journal_entry = je_tibet_expedition
+					has_objective = objective_great_game
+				}
+				has_dlc_feature = ep1_content
+			}
+			add_journal_entry = {
+				type = je_tibet_expedition
+			}
+		}
+	}
+}

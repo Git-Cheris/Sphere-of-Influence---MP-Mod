@@ -1,0 +1,97 @@
+﻿dp_conquer_state = {
+	war_goal = conquer_state
+	
+	texture = "gfx/interface/icons/war_goals/conquer_state.dds"
+	
+	possible = {
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		NOT = { is_subject_of = scope:target_country }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+			NOT = { is_subject_of = root }
+		}
+		diplomatic_play_has_no_relations_blockers = yes
+		
+		## First iteration
+		#OR = {
+		#	scope:target_country = { country_is_in_africa = no }
+		#	country_is_in_africa = yes
+		#	AND = {
+		#		country_is_in_africa = no
+		#		has_technology_researched = civilizing_mission
+		#	}
+		#}
+		
+		## Second iteration
+		#OR = {
+		#	scope:target_state = { 
+		#		NOR = { 
+		#			has_state_trait = state_trait_malaria
+		#			has_state_trait = state_trait_severe_malaria
+		#		}
+		#	}
+		#	AND = {
+		#		scope:target_state = { 
+		#			OR = { 
+		#				has_state_trait = state_trait_malaria
+		#				has_state_trait = state_trait_severe_malaria
+		#			}
+		#		}
+		#		OR = {
+		#			country_is_in_africa = yes
+		#			AND = {
+		#				country_is_in_africa = no
+		#				has_technology_researched = civilizing_mission
+		#			}
+		#		}
+		#	}
+		#}
+		
+		## Third iteration
+		OR = {
+			scope:target_state = { 
+				NOR = { 
+					has_state_trait = state_trait_malaria
+					has_state_trait = state_trait_severe_malaria
+				}
+			}
+			has_global_variable = conference_africa_hosted
+			country_is_in_africa = yes
+		}
+	}
+	
+	ai_acceptance_max = 75
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_make_protectorate = {
+	war_goal = make_protectorate
+	
+	texture = "gfx/interface/icons/war_goals/make_protectorate.dds"
+	
+	possible = {	
+		aggressive_diplomatic_plays_permitted = yes		
+		OR = {
+			scope:target_country = { 
+				exists = capital 
+				NOT = { capital = { has_state_trait = state_trait_malaria } }
+			}
+			has_global_variable = conference_africa_hosted
+			country_is_in_africa = yes
+		}
+	}
+	
+	ai_acceptance_max = 90
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}

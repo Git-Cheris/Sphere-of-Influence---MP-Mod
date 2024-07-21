@@ -1,0 +1,35 @@
+doctrine_of_lapse_NET = {
+	is_shown = {
+		exists = c:DEI
+		c:DEI = { is_subject_type = subject_type_puppet }
+		NOT = { has_variable = doctrine_of_lapse_NET_ended }
+		any_subject_or_below = {
+			is_player = no
+			has_government_type = gov_sultanate
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		custom_tooltip = {
+			text = doctrine_of_lapse_cooldown_tt
+			NOT = { has_variable = doctrine_of_lapse_NET_cooldown }
+		}
+		any_subject_or_below = {
+			is_player = no
+			has_government_type = gov_sultanate
+		}
+	}
+
+	when_taken = {
+		trigger_event = { id = eicdei_consolidation.2 days = 0 popup = yes }
+		set_variable = {
+			name = doctrine_of_lapse_NET_cooldown
+			years = 2
+		}
+	}
+
+	ai_chance = {
+		base = 5
+	}
+}
